@@ -3,9 +3,14 @@ import torch
 from tqdm import tqdm 
 import json
 import os
+from openai import AzureOpenAI
+import time
 
 DEFAULT_CHAT_TEMPLATE = "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"
-
+API_KEY = None
+API_VERSION = None
+AZURE_ENDPOINT = None
+DEPLOYMENT_NAME = "gpt-4"
 
 class InferenceModel:
     def __init__(self, model_id, dataset_dir):
@@ -33,6 +38,16 @@ class InferenceModel:
         self.tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True, use_auth_token=True)
         if "mistral" in model_id:
             self.tokenizer.chat_template = DEFAULT_CHAT_TEMPLATE
+
+        elif "GPT" in self.model_id:
+            self.model = None
+            self.tokenizer = None
+            self.client = AzureOpenAI(
+                        api_key= API_KEY,
+                        api_version= API_VERSION,
+                        azure_endpoint = AZURE_ENDPOINT,
+                        )
+
 
 
         self.temperature = None
@@ -121,6 +136,39 @@ class InferenceModel:
         response = self.tokenizer.decode(response, skip_special_tokens=True)
         return response
 
+    def  _generate_response_gpt_4(self, prompt):
+        deployment_name = 
+        retries = 10  # Number of retries
+        attempt = 0  # Current attempt number
+        while attempt <= retries:
+            try:
+                response = client.chat.completions.create(
+                    model=DEPLOYMENT_NAME,
+                    messages=[
+                        {
+                        "role": "user",
+                        "content": [
+                            {
+                            "type": "text",
+                            "text": prompt
+                            }
+                        ]
+                        },
+                    ],
+                    temperature=self.temperature,
+                    max_tokens=self.max_new_tokens,
+                    top_p=self.top_p,
+                    frequency_penalty=0,
+                    presence_penalty=0
+                )
+                return response.choices[0].message.content
+            except Exception as e:
+                print(f"Attempt {attempt + 1} failed: {str(e)}")
+                attempt += 1
+                time.sleep(2)
+        return None  # Return None if all attempts fail
+
+
 
     def generate_response(self, max_length_input, temperature, max_new_tokens, top_p, output_dir):
 
@@ -145,6 +193,8 @@ class InferenceModel:
                 response = self._generate_response_phi3(prompt)
             elif "gemma" in self.model_id:
                 response = self,_generate_response_gemma(prompt)
+            elif "GPT" in self.model_id:
+                response = self._generate_response_gpt_4(prompt)
 
             cot_response = response.split("Answer:")[0]
             final_answer = response.split("Answer:")[-1]
