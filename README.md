@@ -5,6 +5,14 @@ Check out our paper - [UnSeenTimeQA: Time-Sensitive Question-Answering Beyond LL
 
 We introduce a novel time-sensitive question-answering (TSQA) benchmark that diverges from traditional TSQA benchmarks by avoiding factual and web-searchable queries. We present a series of time-sensitive event scenarios decoupled from real-world factual information. It requires large language models (LLMs) to engage in genuine temporal reasoning, disassociating from the knowledge acquired during the pre-training phase. Our evaluation of six open-source LLMs (ranging from 2B to 70B in size) and three closed-source LLMs reveal that the questions from the UnSeenTimeQA present substantial challenges. This indicates the models' difficulties in handling complex temporal reasoning scenarios. Additionally, we present several analyses shedding light on the models' performance in answering time-sensitive questions.
 
+<img src="unseentimeqa.png" align="center" data-canonical-src="question_types.png" width="600" height="315" />
+
+Different types of events (six) from the UnSeenTimeQA benchmark. The benchmark is structured into
+four difficulty levels: easy, medium, hard (serial), and hard (parallel). In the easy level, the start (S) and end (E)
+times of each event are given. The medium level includes the start time (S) and duration (D) of each event. The hard
+(serial) level presents only the duration (D) of events, assuming sequential occurrence. The hard (parallel) level also
+includes only durations (D), but events can occur simultaneously. Pictures (top), drawn by DALL-E 3.
+
 ## Data Release
 
 Please see `./data` folder to access the UnSeenTimeQA dataset.
