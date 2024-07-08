@@ -13,27 +13,27 @@ Please see `./data` folder to access the UnSeenTimeQA dataset.
     ├── data
         ├── Easy
         │   └── Serial
-	    |       ├── split_1
-		|       ├── split_2
-	    │       ├── split_3
-		|       └── split_4
+	|        ├── split_1
+	|        ├── split_2
+	|        ├── split_3
+	|	 └── split_4
         ├── Medium
         │   └── Serial
-        |       ├── split_1
-		|       ├── split_2
-	    │       ├── split_3
-		|       └── split_4
+        |        ├── split_1
+	|	 ├── split_2
+	|        ├── split_3
+	|	 └── split_4
         └── Hard
             ├── Serial
-            │   ├── split_1
-		    │   ├── split_2
-	        |   ├── split_3
-		    │   └── split_4
+            │    ├── split_1
+	    │    ├── split_2
+	    |    ├── split_3
+	    │    └── split_4
             └── Parallel
-                ├── split_1
-		        ├── split_2
-	            ├── split_3
-		        └── split_4                
+                 ├── split_1
+	         ├── split_2
+	         ├── split_3
+	         └── split_4                
 
 In all these folders, the JSON files are formatted as below:
 
