@@ -48,10 +48,10 @@ In all these folders, the JSON files are formatted as below:
     "events": "list",   
     "question": "list",   
     "answers": "list",   
-	"depth": "list",   
-	"execution": "str",   
-	"question_category": "int",   
-	"source_plan_id": "int",   
+    "depth": "int",   
+    "execution": "str",   
+    "question_category": "int",   
+    "source_plan_id": "int",   
 }
 ```
 
