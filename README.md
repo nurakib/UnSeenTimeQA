@@ -64,6 +64,16 @@ In all these folders, the JSON files are formatted as below:
 }
 ```
 
+### Question Types for UnSeenTimeQA
+
+```JSON
+{
+    "question_type_1": "Static Time",
+    "question_type_2": "Relative Time",
+    "question_type_3": "Hypothetical Time", 
+}
+```
+
 ## BibTeX Entry and Citation Info ##
 
 If you are using our dataset, please cite our paper:
