@@ -192,7 +192,7 @@ class InferenceModel:
             elif "Phi" in self.model_id:
                 response = self._generate_response_phi3(prompt)
             elif "gemma" in self.model_id:
-                response = self,_generate_response_gemma(prompt)
+                response = self._generate_response_gemma(prompt)
             elif "GPT" in self.model_id:
                 response = self._generate_response_gpt_4(prompt)
 
