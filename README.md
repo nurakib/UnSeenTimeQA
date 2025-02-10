@@ -31,10 +31,9 @@ Please see `./data` folder to access the UnSeenTimeQA dataset. The JSON files ar
     "events": "list",   
     "question": "list",   
     "answers": "list",   
-    "depth": "int",   
-    "execution": "str",   
-    "question_category": "int",   
-    "source_plan_id": "int",   
+    "depth": "int", 
+    "data_split": "str",
+    "execution": "str",  
 }
 ```
 
