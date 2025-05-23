@@ -29,7 +29,7 @@ Please see `./data` folder to access the UnSeenTimeQA dataset. The JSON files ar
     "objects_description": "list",   
     "initial_states_description": "list",   
     "events": "list",   
-    "question": "list",   
+    "question": "str",   
     "answers": "list",   
     "depth": "int", 
     "data_split": "str",
