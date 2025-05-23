@@ -65,7 +65,7 @@ If you are using our dataset, please cite our paper:
 
 ## Huggingface Release
 
-- Huggingface version of [UnSeenTimeQA](nurakib/UnSeenTimeQA) dataset for easy access
+- Huggingface version of [UnSeenTimeQA](https://huggingface.co/datasets/nurakib/UnSeenTimeQA) dataset for easy access
 
 ## Contact Information
 
