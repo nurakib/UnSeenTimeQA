@@ -63,11 +63,11 @@ If you are using our dataset, please cite our paper:
 }
 ```
 
-## Stay tuned for ...
+## Huggingface version:
 
 - Huggingface version of UnSeenTimeQA dataset for easy access
 
 ## Contact Information
 
-* For help or issues in using UnSeenTimeQA, please submit a GitHub issue.
+* For help or issues in using [UnSeenTimeQA](nurakib/UnSeenTimeQA), please submit a GitHub issue.
 * Please contact Md Nayem Uddin (muddin11@asu.edu) or Amir Saeidi (ssaeidi1@asu.edu) for communication related to UnSeenTimeQA.
